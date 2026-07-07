@@ -5,289 +5,366 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imran Fazal — Oxford DPhil Fund</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--deep:#1A3A2A;--gold:#C9A84C;--cream:#FBF7F0;--ivory:#F5F0E8;--dark:#1C1C1C;--muted:#6B6B6B;--radius:8px}
-body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark);line-height:1.7}
-h1,h2,h3,h4{font-family:'EB Garamond',serif;font-weight:600;color:var(--deep)}
-/* GATE */
-.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--deep) 0%,#0F2A1E 100%);padding:24px;position:relative;overflow:hidden}
-.gate::before{content:'✦';position:absolute;top:-60px;left:-60px;font-size:30rem;opacity:0.02;color:var(--gold)}
-.gate-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(201,168,76,0.15);border-radius:16px;padding:48px;max-width:460px;width:100%;text-align:center}
-.gate-card .seal{font-size:3rem;margin-bottom:16px;display:block}
-.gate-card h1{color:#fff;font-size:1.6rem;margin-bottom:4px}
-.gate-card .subt{color:rgba(255,255,255,0.6);font-size:0.85rem;margin-bottom:28px;font-style:italic}
-.gate-card input{width:100%;padding:14px 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:var(--radius);color:#fff;font-size:1rem;font-family:inherit;outline:none;transition:border 0.3s;text-align:center}
-.gate-card input:focus{border-color:var(--gold)}
-.gate-card input::placeholder{color:rgba(255,255,255,0.3)}
-.gate-card .btn-gate{width:100%;margin-top:16px;padding:14px;background:var(--gold);color:var(--deep);border:none;border-radius:var(--radius);font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.25s;font-family:inherit}
-.gate-card .btn-gate:hover{background:#DDBF5C;transform:translateY(-1px)}
-.gate-error{color:#FF6B6B;font-size:0.85rem;margin-top:12px;display:none}
-.gate-footer{position:absolute;bottom:24px;color:rgba(255,255,255,0.2);font-size:0.75rem}
-/* SITE */
-.site{display:none}
-/* Hero */
-.site-hero{background:linear-gradient(160deg,var(--deep) 0%,#0F2A1E 100%);color:white;padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
-.site-hero::before{content:'✦';position:absolute;top:-40px;right:5%;font-size:25rem;opacity:0.025;color:var(--gold)}
-.site-hero .inner{max-width:700px;margin:0 auto;position:relative;z-index:2}
-.site-hero .badge{display:inline-block;background:rgba(201,168,76,0.15);color:var(--gold);padding:6px 18px;border-radius:100px;font-size:0.75rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(201,168,76,0.2)}
-.site-hero h1{color:white;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.15;margin-bottom:12px}
-.site-hero h1 em{color:var(--gold);font-style:normal}
-.site-hero .sub{color:rgba(255,255,255,0.65);font-size:1.05rem;max-width:560px;margin:0 auto 28px;font-style:italic}
-.site-hero .oxford-link{color:rgba(255,255,255,0.4);font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:2px}
-.site-hero .oxford-link:hover{color:var(--gold)}
-.container{max-width:900px;margin:0 auto;padding:0 24px}
-section{padding:72px 0}
-section:nth-child(even){background:var(--ivory)}
-.section-label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px}
-.section-title{font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:20px}
-.section-text{font-size:1rem;color:#444;max-width:680px;line-height:1.75}
-.section-text p{margin-bottom:16px}
-/* Scholar bio */
-.scholar-header{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap}
-.scholar-info{flex:1;min-width:280px}
-.scholar-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px}
-.stat-card{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);border-radius:var(--radius);padding:16px;text-align:center}
-.stat-card .num{font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--deep)}
-.stat-card .lbl{font-size:0.75rem;color:var(--muted);margin-top:4px}
-.education{display:grid;gap:16px;margin-top:24px}
-.edu-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #E8E0D6}
-.edu-item:last-child{border-bottom:none}
-.edu-item .year{font-weight:600;color:var(--gold);font-size:0.85rem;min-width:80px}
-.edu-item .detail{font-size:0.95rem}
-.edu-item .detail .inst{font-weight:600;color:var(--deep)}
-.edu-item .detail .qual{color:var(--muted);font-size:0.85rem}
-/* Endorsement */
-.endorsement-card{background:white;border-radius:12px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.04);border-left:4px solid var(--gold);margin:24px 0}
-.endorsement-card .quote{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;line-height:1.7;color:#333}
-.endorsement-card .attribution{margin-top:20px;padding-top:16px;border-top:1px solid #F0E8DE}
-.endorsement-card .attribution .name{font-weight:600;color:var(--deep)}
-.endorsement-card .attribution .role{font-size:0.85rem;color:var(--muted)}
-/* Project */
-.project-box{background:white;border-radius:12px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.04);margin-top:24px}
-.project-box h3{font-size:1.2rem;margin-bottom:12px;font-family:'EB Garamond',serif}
-.project-box p{font-size:0.95rem;color:#444;margin-bottom:12px;line-height:1.7}
-.project-box ul{list-style:none;padding:0}
-.project-box ul li{padding:10px 0 10px 24px;position:relative;font-size:0.9rem;color:#444;border-bottom:1px solid #F5F0E8}
-.project-box ul li:last-child{border-bottom:none}
-.project-box ul li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-weight:700}
-/* Fund */
-.fund-header{text-align:center;margin-bottom:40px}
-.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.fund-card{background:white;border-radius:12px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.04);text-align:center}
-.fund-card .big{font-family:'EB Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--deep)}
-.fund-card .big .currency{font-size:1.5rem;vertical-align:top;color:var(--gold)}
-.fund-card .desc{font-size:0.9rem;color:var(--muted);margin-top:8px;line-height:1.5}
-.fund-card.primary{background:var(--deep);color:white}
-.fund-card.primary .big{color:var(--gold)}
-.fund-card.primary .desc{color:rgba(255,255,255,0.7)}
-.fund-card.primary .btn-donate{display:inline-block;margin-top:16px;padding:12px 28px;background:var(--gold);color:var(--deep);border-radius:100px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.25s}
-.fund-card.primary .btn-donate:hover{background:#DDBF5C;transform:translateY(-2px)}
-.shares-box{background:var(--ivory);border-radius:12px;padding:28px;margin-top:24px;text-align:center;border:1px solid rgba(201,168,76,0.2)}
-.shares-box p{font-size:0.95rem;color:#444;margin-bottom:12px}
-.shares-box .highlight-gold{color:var(--gold);font-weight:700}
-.share-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.share-dot{width:32px;height:32px;border-radius:50%;background:#E8E0D6;display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--muted);font-weight:600}
-.share-dot.filled{background:var(--deep);color:white}
-.share-dot.you{background:var(--gold);color:var(--deep)}
-/* Timeline */
-.timeline{position:relative;padding-left:32px;margin-top:24px}
-.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:#E8E0D6}
-.tl-item{position:relative;margin-bottom:24px;padding-left:20px}
-.tl-item::before{content:'';position:absolute;left:-28px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:3px solid var(--cream)}
-.tl-item .year{font-size:0.8rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em}
-.tl-item .desc{font-size:0.95rem;color:#444;margin-top:4px}
-/* CTA section */
-.cta{background:var(--deep);color:white;text-align:center;padding:72px 24px}
-.cta h2{color:white;font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:12px}
-.cta p{color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto 28px;font-size:0.95rem}
-.cta .btn-donate-lg{display:inline-block;padding:16px 40px;background:var(--gold);color:var(--deep);border-radius:100px;font-weight:600;font-size:1.05rem;text-decoration:none;transition:all 0.25s}
-.cta .btn-donate-lg:hover{background:#DDBF5C;transform:translateY(-2px)}
-.cta .note{font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:16px;font-style:italic}
-/* Footer */
-footer{background:#0F2A1E;color:rgba(255,255,255,0.5);padding:32px 24px;text-align:center;font-size:0.8rem}
-footer a{color:var(--gold);text-decoration:none}
-/* Responsive */
-@media(max-width:640px){
-.fund-grid{grid-template-columns:1fr}
-.scholar-stats{grid-template-columns:1fr 1fr}
-.gate-card{padding:32px}
-}
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --oxford-blue:#002147; --oxford-blue-light:#003366; --oxford-gold:#FFD700; --oxford-cream:#F0F8FF;
+    --dark:#121212; --light-grey:#E0E0E0; --text-muted:#A0A0A0; --footer-bg:#001A33;
+    --radius:8px;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--oxford-cream);color:var(--dark);line-height:1.7}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;color:var(--oxford-blue)}
+  .container{max-width:960px;margin:0 auto;padding:0 24px}
+  /* GATE */
+  .gate{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--oxford-blue);position:relative;overflow:hidden;z-index:1}
+  .gate-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:2}
+  .gate-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1}
+  .gate-content{position:relative;z-index:3;background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius);padding:48px;max-width:480px;width:100%;text-align:center;color:white}
+  .gate-content h1{color:white;font-size:2.2rem;margin-bottom:10px}
+  .gate-content .subt{color:rgba(255,255,255,0.7);font-size:1.05rem;font-style:italic;margin-bottom:30px}
+  .gate-content input{width:100%;padding:14px 20px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);border-radius:var(--radius);color:white;font-size:1rem;font-family:inherit;outline:none;transition:all 0.3s;max-width:300px}
+  .gate-content input:focus{border-color:var(--oxford-gold);background:rgba(255,255,255,0.15)}
+  .gate-content input::placeholder{color:rgba(255,255,255,0.5)}
+  .gate-content button{margin-top:20px;padding:14px 30px;background:var(--oxford-gold);color:var(--oxford-blue);border:none;border-radius:var(--radius);font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:inherit}
+  .gate-content button:hover{background:#FFEF4C;transform:translateY(-2px);box-shadow:0 6px 15px rgba(0,0,0,0.2)}
+  .gate-error{color:#FF4C4C;font-size:0.9rem;margin-top:15px;display:none}
+  .gate-footer{position:absolute;bottom:20px;color:rgba(255,255,255,0.3);font-size:0.8rem;z-index:3}
+  /* SITE CONTENT */
+  .site{display:none;padding-top:70px}
+  nav{position:fixed;top:0;left:0;right:0;background:var(--oxford-blue);color:white;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2)}
+  nav .container{display:flex;justify-content:space-between;align-items:center;height:70px}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:white;text-decoration:none;}
+  .nav-logo span{color:var(--oxford-gold)}
+  .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-weight:500;margin-left:30px;transition:color 0.2s}
+  .nav-links a:hover{color:var(--oxford-gold)}
+  .site-hero{background:linear-gradient(145deg,var(--oxford-blue),var(--oxford-blue-light));color:white;padding:100px 0 80px;text-align:center;position:relative;overflow:hidden}
+  .site-hero .container{position:relative;z-index:2}
+  .site-hero .badge{display:inline-block;background:rgba(255,255,255,0.1);color:var(--oxford-gold);padding:8px 20px;border-radius:50px;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:25px}
+  .site-hero h1{color:white;font-size:clamp(2.5rem,5vw,4rem);line-height:1.2;margin-bottom:20px}
+  .site-hero h1 strong{color:var(--oxford-gold)}
+  .site-hero p.lead{font-size:1.2rem;max-width:700px;margin:0 auto 35px;color:rgba(255,255,255,0.8);line-height:1.6}
+  .site-hero .btn-primary{display:inline-block;background:var(--oxford-gold);color:var(--oxford-blue);padding:15px 35px;border-radius:50px;font-weight:600;text-decoration:none;font-size:1.1rem;transition:all 0.3s}
+  .site-hero .btn-primary:hover{background:#FFEF4C;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.2)}
+  section{padding:80px 0;border-bottom:1px solid var(--light-grey)}
+  section:last-of-type{border-bottom:none}
+  .section-header{text-align:center;margin-bottom:60px}
+  .section-header .sub-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--oxford-gold);margin-bottom:10px}
+  .section-header .section-title{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.3;margin-bottom:20px}
+  .section-header p{font-size:1.1rem;color:var(--text-muted);max-width:700px;margin:0 auto}
+  .content-block{font-size:1.05rem;line-height:1.8;color:var(--dark);max-width:800px;margin:0 auto}
+  .content-block p{margin-bottom:1.2em}
+  .content-block ul{list-style:disc;margin-left:20px;margin-bottom:1.2em}
+  .content-block h3{font-size:1.6rem;margin-top:1.5em;margin-bottom:0.8em}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .tile{background:white;padding:30px;border-radius:var(--radius);box-shadow:0 4px 20px rgba(0,0,0,0.05);border-bottom:4px solid var(--oxford-blue)}
+  .tile h3{font-size:1.4rem;margin-bottom:15px}
+  .tile p{font-size:0.95rem;color:var(--text-muted)}
+  .quote-block{background:var(--oxford-blue-light);color:white;padding:50px;border-radius:var(--radius);margin-top:40px;text-align:center}
+  .quote-block blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;line-height:1.5}
+  .quote-block cite{display:block;margin-top:20px;font-size:0.9rem;color:rgba(255,255,255,0.7)}
+  .fund-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+  .fund-card{background:white;padding:30px;border-radius:var(--radius);box-shadow:0 4px 20px rgba(0,0,0,0.05);text-align:center}
+  .fund-card.highlight{background:var(--oxford-blue);color:white;border:none}
+  .fund-card.highlight h3{color:var(--oxford-gold)}
+  .fund-card h3{font-size:2.2rem;color:var(--oxford-blue);margin-bottom:10px}
+  .fund-card .label{font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)}
+  .fund-card.highlight .label{color:rgba(255,255,255,0.7)}
+  .shares-visual{display:flex;flex-wrap:wrap;justify-content:center;margin-top:30px}
+  .share-dot{width:20px;height:20px;border-radius:50%;background:var(--light-grey);margin:4px}
+  .share-dot.filled{background:var(--oxford-gold)}
+  .share-dot.pledged{background:var(--oxford-blue)}
+  .timeline-container{max-width:800px;margin:60px auto 0;position:relative}
+  .timeline-container::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--light-grey);transform:translateX(-50%)}
+  .timeline-item{padding:20px 0;position:relative;width:50%;margin-bottom:20px}
+  .timeline-item:nth-child(odd){left:0;padding-right:40px;text-align:right}
+  .timeline-item:nth-child(even){left:50%;padding-left:40px;text-align:left}
+  .timeline-item::before{content:'';position:absolute;top:28px;width:10px;height:10px;border-radius:50%;background:var(--oxford-gold);border:2px solid white;z-index:1}
+  .timeline-item:nth-child(odd)::before{right:-5px}
+  .timeline-item:nth-child(even)::before{left:-5px}
+  .timeline-item .year{font-size:1.1rem;font-weight:600;color:var(--oxford-blue);margin-bottom:5px}
+  .timeline-item .title{font-size:1.2rem;font-weight:500;color:var(--dark)}
+  .timeline-item p{font-size:0.95rem;color:var(--text-muted)}
+  .cta-section{background:var(--oxford-blue);color:white;padding:80px 0;text-align:center}
+  .cta-section h2{color:white;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:20px}
+  .cta-section p{font-size:1.1rem;max-width:700px;margin:0 auto 40px;color:rgba(255,255,255,0.8)}
+  .cta-section .btn-donate{background:var(--oxford-gold);color:var(--oxford-blue);padding:15px 40px;border-radius:50px;font-weight:600;text-decoration:none;font-size:1.1rem;transition:all 0.3s}
+  .cta-section .btn-donate:hover{background:#FFEF4C;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+  footer{background:var(--footer-bg);color:rgba(255,255,255,0.5);padding:40px 0;text-align:center;font-size:0.85rem}
+  footer a{color:var(--oxford-gold);text-decoration:none;margin:0 5px}
+  @media(max-width:768px){
+    .grid-2{grid-template-columns:1fr}
+    .timeline-container::before{left:10px}
+    .timeline-item{width:100%;left:0!important;padding-left:40px;padding-right:0;text-align:left!important}
+    .timeline-item::before{left:5px!important}
+  }
 </style>
 </head>
 <body>
 
-<!-- GATE -->
+<!-- Gate Page -->
 <div class="gate" id="gate">
-<div class="gate-card">
-<span class="seal">🕌</span>
-<h1>Exclusive Fundraiser</h1>
-<p class="subt">Oxford DPhil in Islamic Studies</p>
-<input type="password" id="passwordInput" placeholder="Enter password" autocomplete="off">
-<button class="btn-gate" onclick="checkPassword()">Enter</button>
-<div class="gate-error" id="gateError">Incorrect password. Please try again.</div>
-</div>
-<div class="gate-footer">© 2025 — Imran Fazal DPhil Fund</div>
+  <canvas id="gateCanvas" class="gate-canvas"></canvas>
+  <div class="gate-overlay"></div>
+  <div class="gate-content">
+    <h1>A Legacy of Scholarship</h1>
+    <p class="subt">An Exclusive Fundraiser for an Oxford DPhil in Islamic Studies</p>
+    <input type="password" id="passwordInput" placeholder="Enter access code" autocomplete="off">
+    <button onclick="checkPassword()">Access Fundraiser</button>
+    <p class="gate-error" id="gateError">Incorrect access code. Please try again.</p>
+  </div>
+  <div class="gate-footer">© 2025 Imran Fazal DPhil Fund</div>
 </div>
 
-<!-- SITE -->
+<!-- Main Site Content -->
 <div class="site" id="site">
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-logo">Imran Fazal <span>DPhil Fund</span></a>
+      <div class="nav-links">
+        <a href="#scholar">The Scholar</a>
+        <a href="#research">The Research</a>
+        <a href="#community">Impact</a>
+        <a href="#fund">Support</a>
+      </div>
+    </div>
+  </nav>
 
-<section class="site-hero">
-<div class="inner">
-<div class="badge">✦ Oxford DPhil Fundraiser</div>
-<h1>Support <em>Imran Fazal</em></h1>
-<p class="sub">A rare intellect bridging Islamic scholarship, public service, and philosophical rigour — seeking support for doctoral research at the University of Oxford.</p>
-<a href="https://www.ames.ox.ac.uk" class="oxford-link" target="_blank">Faculty of Asian and Middle Eastern Studies, Oxford</a>
-</div>
-</section>
+  <section class="site-hero">
+    <div class="container">
+      <div class="badge">✦ Oxford DPhil Opportunity</div>
+      <h1>Support <strong>Imran Fazal</strong> at the <br>University of Oxford</h1>
+      <p class="lead">An unparalleled scholar bridging classical Islamic learning with contemporary global challenges seeks support for a doctoral degree in Islamic Studies.</p>
+      <a href="#fund" class="btn-primary">Pledge Your Support Today</a>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<div class="section-label">✦ About</div>
-<h2 class="section-title">Scholar &amp; Public Servant</h2>
-<div class="scholar-header">
-<div class="scholar-info">
-<div class="section-text">
-<p><strong>Imran Fazal</strong> is an Oxford-trained philosopher and traditionally trained Islamic jurist who has dedicated his career to bridging the Islamic scholarly tradition with rigorous academic analysis and public service.</p>
-<p>After reading Philosophy, Politics and Economics at Oxford (followed by a B.Phil in Philosophy), he spent a decade in full-time traditional Islamic studies in Damascus, Syria, studying under senior scholars and receiving teaching licences (<em>ijāzāt</em>) in Islamic law, theology, and hadith. He later taught <em>uṣūl al-fiqh</em> (legal theory) to students and graduates of al-Azhar University in Cairo.</p>
-<p>In public service, he held senior roles at the UK Home Office and Ministry of Justice, including Deputy Head of the Joint Extremism Unit and Head of Assessments for the Extremism Analysis Unit — roles requiring deep engagement with primary Arabic sources on Islamic legal and theological thought.</p>
-</div>
-<div class="education">
-<div class="edu-item"><div class="year">1997–2002</div><div class="detail"><div class="inst">University of Oxford</div><div class="qual">B.A. Philosophy, Politics and Economics</div></div></div>
-<div class="edu-item"><div class="year">2000–2002</div><div class="detail"><div class="inst">University of Oxford</div><div class="qual">B.Phil. Philosophy</div></div></div>
-<div class="edu-item"><div class="year">2003–2011</div><div class="detail"><div class="inst">Damascus, Syria</div><div class="qual">Full-time traditional Islamic studies — <em>ijāzāt</em> in law, theology, hadith</div></div></div>
-<div class="edu-item"><div class="year">2011–2014</div><div class="detail"><div class="inst">al-Azhar University, Cairo</div><div class="qual">Higher Licence in Islamic Law</div></div></div>
-</div>
-</div>
-<div class="scholar-stats">
-<div class="stat-card"><div class="num">Oxford</div><div class="lbl">BA & B.Phil</div></div>
-<div class="stat-card"><div class="num">al-Azhar</div><div class="lbl">Higher Licence</div></div>
-<div class="stat-card"><div class="num">10 yrs</div><div class="lbl">Traditional Studies</div></div>
-<div class="stat-card"><div class="num">4 langs</div><div class="lbl">Arabic, Urdu, French, Italian</div></div>
-</div>
-</div>
-</div>
-</section>
+  <section id="scholar">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-label">His Journey & Impact</div>
+        <h2 class="section-title">A Scholar for Our Times: Bridging Worlds</h2>
+        <p>Imran Fazal represents a unique blend of profound traditional Islamic scholarship, rigorous philosophical training, and critical experience in public service. His journey embodies a commitment to deep learning and practical application for societal good.</p>
+      </div>
+      <div class="content-block">
+        <h3>Profile & Contributions</h3>
+        <p><strong>Imran Fazal</strong> is a distinguished academic and public servant. Holding a BA and B.Phil in Philosophy from the University of Oxford, he further deepened his knowledge through a decade of intensive traditional Islamic studies in Damascus, Syria, where he earned teaching licenses (<em>ijāzāt</em>) in Islamic law, theology, and hadith. This was followed by a Higher Licence in Islamic Law from al-Azhar University, Cairo.</p>
+        <p>Beyond academia, Imran has served at the highest levels of the UK civil service, including as Deputy Head of the Joint Extremism Unit and Head of Assessments for the Extremism Analysis Unit within the Home Office and Ministry of Justice. In these roles, his expertise in classical Arabic and Islamic thought was critical in informing national counter-terrorism strategies, directly impacting societal safety and understanding.</p>
+        <h3>Education & Languages</h3>
+        <ul>
+          <li><strong>al-Azhar University, Cairo:</strong> Higher Licence in Islamic Law (2011–2014)</li>
+          <li><strong>Damascus, Syria:</strong> Full-time traditional Islamic studies, <em>ijāzāt</em> (2003–2011)</li>
+          <li><strong>University of Oxford:</strong> B.Phil. Philosophy (2000–2002)</li>
+          <li><strong>University of Oxford:</strong> B.A. Philosophy, Politics and Economics (1997–2002)</li>
+          <li><strong>Languages:</strong> Fluent in Classical and Modern Standard Arabic, Urdu; Advanced French; Intermediate Italian.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<div class="section-label">✦ The Research</div>
-<h2 class="section-title">Ibn Taymiyya's Doctrine of Jihad</h2>
-<div class="project-box">
-<h3>DPhil Research Proposal — Faculty of Asian and Middle Eastern Studies</h3>
-<p>Imran's doctoral project aims to study the doctrine of <em>jihād</em> in the writings of the medieval Muslim jurist and theologian Ibn Taymiyya (d. 1328). Despite Ibn Taymiyya's enormous influence on modern militant ideology, there exists no dedicated comprehensive study of his overall doctrine of jihad.</p>
-<p>The project seeks to show that later in his life, Ibn Taymiyya argued that war is justified only on grounds of self-defence or inability to practise the Islamic faith freely — a significant departure from prevailing medieval juristic views. This research has profound implications for contemporary counter-extremism and interfaith understanding.</p>
-<h3 style="margin-top:20px">Supervisors</h3>
-<ul>
-<li><strong>Professor Nicolai Sinai</strong> FBA — Professor of Islamic Studies, University of Oxford, Fellow of Pembroke College</li>
-<li><strong>Professor Fitzroy Morrissey</strong> — Fellow of All Souls College, Oxford</li>
-</ul>
-<h3 style="margin-top:20px">Key Research Questions</h3>
-<ul>
-<li>What does prior Sunni legal doctrine say about the grounds for initiating war?</li>
-<li>What are Ibn Taymiyya's views on these questions, and do they depart from the tradition?</li>
-<li>How do his hermeneutical commitments inform his legal positions?</li>
-<li>What is the subsequent reception of his views in modern Islamic thought?</li>
-</ul>
-</div>
-</div>
-</section>
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-label">The DPhil Project</div>
+        <h2 class="section-title">Re-evaluating Ibn Taymiyya's Doctrine of Jihad</h2>
+        <p>Imran's doctoral research focuses on the doctrine of <em>jihād</em> in the writings of the medieval Muslim jurist Ibn Taymiyya (d. 1328). This project is not merely an academic exercise; it delves into a historical figure whose complex legacy is often misconstrued in contemporary discourse, particularly concerning radical ideologies.</p>
+      </div>
+      <div class="content-block">
+        <div class="grid-2">
+          <div class="tile">
+            <h3>Core Thesis</h3>
+            <p>Imran aims to demonstrate that Ibn Taymiyya, later in his life, argued for a doctrine of <em>jihād</em> primarily rooted in self-defence or the inability to freely practice Islam. This represents a significant departure from prevalent medieval views that often permitted proactive warfare.</p>
+          </div>
+          <div class="tile">
+            <h3>Timely Relevance</h3>
+            <p>By providing a rigorous, text-based re-evaluation, the research directly challenges contemporary extremist interpretations that selectively appropriate Ibn Taymiyya's authority, offering a vital academic counter-narrative.</p>
+          </div>
+        </div>
+        <h3 style="margin-top:40px">Supervisors & Academic Rigour</h3>
+        <p>Imran will be jointly supervised by two leading authorities in the field:</p>
+        <ul>
+          <li><strong>Professor Nicolai Sinai FBA:</strong> Professor of Islamic Studies, University of Oxford, Fellow of Pembroke College. His expertise in Qur’anic studies and Islamic philosophical thought is invaluable.</li>
+          <li><strong>Professor Fitzroy Morrissey:</strong> Fellow of All Souls College, Oxford. His research interests in Islamic law and history, particularly reformist thought, align perfectly with Imran’s project.</li>
+        </ul>
+        <div class="quote-block">
+          <blockquote>"Imran's application received a rare set of full marks (40/40)... a much more complex and nuanced thinker than most scholars would have expected to find... will be a precious contribution to Islamic intellectual history, it also has clear social and religious implications beyond academia."</blockquote>
+          <cite>— Professor Nicolai Sinai FBA, University of Oxford</cite>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<div class="section-label">✦ Endorsement</div>
-<h2 class="section-title">Letter of Recommendation</h2>
-<div class="endorsement-card">
-<div class="quote">"Imran's application received a rare set of full marks (40/40), and he was not only offered an Oxford doctoral place but was also emphatically put forward for various funding opportunities. Imran's project compellingly brings together his skills of philosophical analysis, his deep knowledge of the Islamic tradition, and his previous work as Head of Policy for the Joint Extremism Unit. While his project will be a precious contribution to Islamic intellectual history, it also has clear social and religious implications beyond academia."</div>
-<div class="attribution">
-<div class="name">Professor Nicolai Sinai</div>
-<div class="role">Professor of Islamic Studies, University of Oxford · Fellow of Pembroke College · Fellow of the British Academy</div>
-</div>
-</div>
-<div class="section-text" style="margin-top:16px;font-size:0.9rem;color:var(--muted)">
-<p>Professor Sinai notes that virtually all scholarships available to support doctoral study at the Faculty are not under the immediate control of faculty academics, meaning students must compete with other applicants across Oxford and nationally. Despite the exceptional strength of his application, efforts to secure funding were unsuccessful in this round.</p>
-</div>
-</div>
-</section>
+  <section id="community">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-label">Beyond Academia</div>
+        <h2 class="section-title">Impact: Community & Independent Islamic Thought</h2>
+        <p>This DPhil is more than just a thesis; it is an investment in fostering a more nuanced understanding of Islamic tradition, directly addressing contemporary challenges, and cultivating independent, critical Islamic research for the benefit of global Muslim communities and broader society.</p>
+      </div>
+      <div class="content-block">
+        <h3>Strengthening Public Discourse & Counter-Extremism</h3>
+        <p>Imran's background in both traditional Islamic studies and counter-terrorism makes his research uniquely positioned to inform and enrich public discourse. By meticulously reconstructing Ibn Taymiyya's authentic views on <em>jihād</em>, the project directly contributes to efforts to:</p>
+        <ul>
+          <li><strong>Undermine extremist narratives:</strong> Provide scholarly correctives against selective and distorted readings of classical texts used to justify violence.</li>
+          <li><strong>Promote peace:</strong> Highlight historical precedents within Islamic thought for defensive rather than offensive warfare, fostering interpretations that align with peaceful coexistence.</li>
+          <li><strong>Inform policy:</strong> Offer evidence-based insights derived from deep textual engagement, valuable for policymakers working on national security and interfaith relations.</li>
+        </ul>
+        <p>This work will generate much-needed perspectives at the intersection of religious scholarship and policy, helping to build bridges rather than walls of misunderstanding.</p>
+        <h3>Cultivating Independent Islamic Research</h3>
+        <p>The academic landscape for Islamic studies in the Western world, especially for scholars deeply rooted in traditional learning, is still evolving. Supporting Imran Fazal's DPhil signifies a commitment to:</p>
+        <ul>
+          <li><strong>Intellectual independence:</strong> Championing scholars who can critically engage with both classical Islamic texts and Western academic methodologies, fostering objectivity and intellectual integrity.</li>
+          <li><strong>Nuanced scholarship:</strong> Moving beyond simplistic or polemical interpretations by establishing rigorous, text-based research that speaks with authority to both religious and academic audiences.</li>
+          <li><strong>Future leadership:</strong> Nurturing future generations of Islamic scholars equipped to address complex contemporary issues from within a well-grounded, multi-disciplinary framework.</li>
+        </ul>
+        <p>Such independent scholarship is vital for the development of resilient, self-critical, and vibrant Islamic thought that can contribute positively to global intellectual and social life.</p>
+      </div>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<div class="section-label">✦ The Fund</div>
-<h2 class="section-title">40 × £500 Shares</h2>
-<div class="fund-grid">
-<div class="fund-card primary">
-<div class="big"><span class="currency">£</span>20,000</div>
-<div class="desc">Total fundraising target<br>for the first year of doctoral study</div>
-<a href="#" class="btn-donate">Pledge a Share</a>
-</div>
-<div class="fund-card">
-<div class="big"><span class="currency">£</span>500</div>
-<div class="desc">Per share — one person can give more than one share</div>
-</div>
-<div class="fund-card">
-<div class="big">40</div>
-<div class="desc">Shares available total</div>
-</div>
-<div class="fund-card">
-<div class="big">100%</div>
-<div class="desc">Goes directly to Oxford tuition and living costs</div>
-</div>
-</div>
-<div class="shares-box">
-<p style="font-size:1.1rem;font-weight:600;color:var(--deep)">How it works</p>
-<p>Each <span class="highlight-gold">£500 share</span> supports Imran's DPhil at Oxford. You may take one share or multiple. All funds go directly to tuition fees and living expenses for the duration of the programme. This is a unique opportunity to invest in scholarship that bridges classical Islamic learning, rigorous philosophical analysis, and meaningful public impact.</p>
-<div class="share-bar">
-<div class="share-dot filled">1</div><div class="share-dot filled">2</div><div class="share-dot filled">3</div>
-<div class="share-dot filled">4</div><div class="share-dot filled">5</div><div class="share-dot">6</div>
-<div class="share-dot">7</div><div class="share-dot">8</div><div class="share-dot">9</div>
-<div class="share-dot">10</div><div class="share-dot">…</div><div class="share-dot you">You?</div>
-</div>
-<p style="font-size:0.8rem;color:var(--muted);margin-top:16px"><em>Progress tracker — 5 of 40 shares filled so far</em></p>
-</div>
-</div>
-</section>
+  <section id="fund">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-label">The Opportunity</div>
+        <h2 class="section-title">Invest in Transformative Scholarship</h2>
+        <p>Your support will directly fund Imran Fazal's first year of doctoral study at the University of Oxford. This is a unique invitation to contribute to scholarship with profound societal and intellectual impact.</p>
+      </div>
+      <div class="fund-grid">
+        <div class="fund-card highlight">
+          <h3>£20,000</h3>
+          <p class="label">Total Target (Year 1)</p>
+        </div>
+        <div class="fund-card">
+          <h3>£500</h3>
+          <p class="label">Per Share</p>
+        </div>
+        <div class="fund-card">
+          <h3>40</h3>
+          <p class="label">Shares Available</p>
+        </div>
+        <div class="fund-card">
+          <h3>100%</h3>
+          <p class="label">Directly to Tuition & Living</p>
+        </div>
+      </div>
+      <div class="content-block" style="margin-top:40px">
+        <h3>How Your Contribution Helps</h3>
+        <p>Each <strong>£500 share</strong> directly supports Imran's DPhil at Oxford, covering essential tuition fees and living expenses. This fund is managed transparently, ensuring every pledge directly fuels this critical research. Whether you choose one share or multiple, your investment is a direct endorsement of scholarship that promises significant returns for both the academy and broader society.</p>
+        <p><em>Example: With 5 shares, we are at 12.5% of the target. Help us fill these dots!</em></p>
+        <div class="shares-visual">
+          <!-- Example shares, dynamically update from backend if available -->
+          <div class="share-dot filled"></div><div class="share-dot filled"></div><div class="share-dot filled"></div><div class="share-dot filled"></div><div class="share-dot filled"></div>
+          <div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div>
+          <div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div>
+          <div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div>
+          <div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div>
+          <div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div>
+          <div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot"></div><div class="share-dot pledged">?</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="cta">
-<h2>Support This Scholarship</h2>
-<p>Join a select group of patrons enabling world-class Islamic studies research at the University of Oxford.</p>
-<div class="donation-options" style="margin-bottom:24px">
-<p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:8px">Select shares:</p>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-<button class="donate-btn" data-amount="500" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:white;padding:10px 20px;border-radius:100px;cursor:pointer;font-family:inherit;font-size:0.9rem;transition:all 0.2s">1 share — £500</button>
-<button class="donate-btn" data-amount="1000" style="background:rgba(201,168,76,0.15);border:1px solid var(--gold);color:var(--gold);padding:10px 20px;border-radius:100px;cursor:pointer;font-family:inherit;font-size:0.9rem;transition:all 0.2s">2 shares — £1,000</button>
-<button class="donate-btn" data-amount="2500" style="background:rgba(201,168,76,0.15);border:1px solid var(--gold);color:var(--gold);padding:10px 20px;border-radius:100px;cursor:pointer;font-family:inherit;font-size:0.9rem;transition:all 0.2s">5 shares — £2,500</button>
-<button class="donate-btn" data-amount="5000" style="background:rgba(201,168,76,0.15);border:1px solid var(--gold);color:var(--gold);padding:10px 20px;border-radius:100px;cursor:pointer;font-family:inherit;font-size:0.9rem;transition:all 0.2s">10 shares — £5,000</button>
-</div>
-</div>
-<a href="mailto:imran.fazal@ames.ox.ac.uk?subject=Oxford%20DPhil%20Fund%20-%20Share%20Pledge&body=Dear%20Imran%2C%0A%0AI%20would%20like%20to%20pledge%20___%20share(s)%20at%20%C2%A3500%20each%20to%20support%20your%20Oxford%20DPhil%20research.%0A%0AName%3A%0AEmail%3A%0APreferred%20payment%20method%3A" class="btn-donate-lg">Pledge Your Support →</a>
-<p class="note">Your pledge is confidential. Contact Imran directly to arrange payment.</p>
-</div>
+  <div class="cta-section">
+    <div class="container">
+      <h2>Join Us in Advancing Critical Islamic Scholarship</h2>
+      <p>Your contribution is an investment not just in a researcher, but in a future where nuanced understanding and independent thought illuminate complex global issues. Support Imran Fazal's DPhil and help shape tomorrow's discourse.</p>
+      <a href="mailto:imran.fazal@ames.ox.ac.uk?subject=Oxford%20DPhil%20Fund%20-%20Share%20Pledge&body=Dear%20Imran%2C%0A%0AI%20would%20like%20to%20pledge%20___%20share(s)%20at%20%C2%A3500%20each%20to%20support%20your%20Oxford%20DPhil%20research.%0A%0AName%3A%0AEmail%3A%0APreferred%20payment%20method%3A" class="btn-donate">Pledge Your Support Now →</a>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin-top:20px">For inquiries, please contact Imran Fazal directly.</p>
+    </div>
+  </div>
 
-<footer>
-<p>© 2025 Imran Fazal DPhil Fund · Faculty of Asian and Middle Eastern Studies · University of Oxford</p>
-<p style="margin-top:4px">Contact: <a href="mailto:imran.fazal@ames.ox.ac.uk">imran.fazal@ames.ox.ac.uk</a></p>
-</footer>
+  <footer>
+    <div class="container">
+      <p>© 2025 Imran Fazal DPhil Fund | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+    </div>
+  </footer>
 
 </div>
 
 <script>
-function checkPassword() {
-    var pw = document.getElementById('passwordInput').value;
-    if (pw === 'Oxford2026') {
-        document.getElementById('gate').style.display = 'none';
-        document.getElementById('site').style.display = 'block';
-        document.body.style.overflow = 'auto';
+  // Password Gate Logic
+  const correctPassword = 'Oxford2026';
+  function checkPassword() {
+    const pw = document.getElementById('passwordInput').value;
+    if (pw === correctPassword) {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('site').style.display = 'block';
+      document.body.style.overflow = 'auto'; // Enable scrolling on main site
     } else {
-        document.getElementById('gateError').style.display = 'block';
-        document.getElementById('passwordInput').value = '';
-        document.getElementById('passwordInput').focus();
+      const errorElement = document.getElementById('gateError');
+      errorElement.style.display = 'block';
+      errorElement.textContent = 'Incorrect access code. Please try again.';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
     }
-}
-document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+  }
+  document.getElementById('passwordInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') checkPassword();
-});
+  });
+
+  // Canvas Animation for Gate Page (simple particle effect)
+  const canvas = document.getElementById('gateCanvas');
+  const ctx = canvas.getContext('2d');
+  let rafId;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const particles = [];
+  const numParticles = 70;
+
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2 + 1, // 1 to 3
+      speedX: Math.random() * 0.5 - 0.25, // -0.25 to 0.25
+      speedY: Math.random() * 0.5 - 0.25, // -0.25 to 0.25
+      color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})` // White with varying alpha
+    };
+  }
+
+  for (let i = 0; i < numParticles; i++) {
+    particles.push(createParticle());
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+    }
+    rafId = requestAnimationFrame(animateParticles);
+  }
+
+  // Start animation only if gate is visible
+  if (document.getElementById('gate').style.display !== 'none') {
+      animateParticles();
+  }
+
+  // Optional: Stop animation when site is accessed
+  document.getElementById('gate').addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'opacity' && document.getElementById('gate').style.display === 'none') {
+          cancelAnimationFrame(rafId);
+      }
+  });
+
 </script>
 
 </body>
